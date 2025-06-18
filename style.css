@@ -1,0 +1,289 @@
+/* CSS Document */
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;600&display=swap');
+        
+        :root {
+            --neon-pink: #ff2a6d;
+            --neon-blue: #05d9e8;
+            --neon-purple: #d300c5;
+            --neon-green: #00ff9d;
+            --bg-dark: #0d0221;
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-dark);
+            font-family: 'Teko', sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 3.5rem;
+            margin: 20px 0 40px;
+            color: white;
+            text-shadow: 0 0 10px var(--neon-pink),
+                         0 0 20px var(--neon-pink),
+                         0 0 30px var(--neon-purple);
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+        
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+        
+        .mini-player {
+            background: rgba(13, 2, 33, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(5, 217, 232, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mini-player:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px var(--neon-blue),
+                        0 0 15px var(--neon-purple);
+        }
+        
+        .mini-player::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                var(--neon-pink), 
+                var(--neon-blue), 
+                var(--neon-purple));
+            z-index: -1;
+            border-radius: 16px;
+            opacity: 0.7;
+            background-size: 200% 200%;
+            animation: borderAnimation 3s linear infinite;
+        }
+        
+        @keyframes borderAnimation {
+            0% { filter: blur(5px); background-position: 0% 50%; }
+            50% { filter: blur(7px); background-position: 100% 50%; }
+            100% { filter: blur(5px); background-position: 0% 50%; }
+        }
+        
+        .song-cover {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+        }
+        
+        .song-info {
+            margin-bottom: 15px;
+        }
+        
+        .song-title {
+            font-size: 1.8rem;
+            margin: 0;
+            color: white;
+            text-shadow: 0 0 5px var(--neon-green);
+            letter-spacing: 1px;
+        }
+        
+        .song-artist {
+            font-size: 1.3rem;
+            color: #aaa;
+            margin: 5px 0;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .play-btn {
+            background: transparent;
+            border: 2px solid var(--neon-pink);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .play-btn:hover {
+            background: var(--neon-pink);
+            box-shadow: 0 0 15px var(--neon-pink);
+            transform: scale(1.1);
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            border-radius: 5px;
+            transition: width 0.1s linear;
+        }
+        
+        .time-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            color: var(--neon-blue);
+        }
+        
+        .volume-control {
+            width: 80px;
+            -webkit-appearance: none;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        .volume-control::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--neon-blue);
+            cursor: pointer;
+            box-shadow: 0 0 5px var(--neon-blue);
+        }
+/* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid var(--neon-purple);
+            box-shadow: 0 -5px 15px rgba(211, 0, 197, 0.2);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .social-link {
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        .facebook:hover { color: #1877f2; text-shadow: 0 0 10px #1877f2; }
+        .twitter:hover { color: #1da1f2; text-shadow: 0 0 10px #1da1f2; }
+        .instagram:hover { 
+            color: transparent;
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 0 0 10px #d6249f;
+        }
+        .youtube:hover { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+        .spotify:hover { color: #1db954; text-shadow: 0 0 10px #1db954; }
+        
+        .copyright {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #aaa;
+            margin-top: 10px;
+        }
+        
+        .copyright a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .copyright a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+        
+        /* Efectos de neón de fondo */
+        .neon-circle {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, 
+                       rgba(255, 42, 109, 0.15), 
+                       transparent 70%);
+            filter: blur(30px);
+            z-index: -1;
+            animation: float 20s infinite linear;
+        }
+        
+        .neon-circle:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            background: radial-gradient(circle, 
+                       rgba(5, 217, 232, 0.15), 
+                       transparent 70%);
+            animation-delay: 0s;
+        }
+        
+        .neon-circle:nth-child(2) {
+            top: 70%;
+            right: 10%;
+            background: radial-gradient(circle, 
+                       rgba(211, 0, 197, 0.15), 
+                       transparent 70%);
+            animation-delay: 5s;
+        }
+        
+        .neon-circle:nth-child(3) {
+            bottom: 10%;
+            left: 20%;
+            background: radial-gradient(circle, 
+                       rgba(0, 255, 157, 0.15), 
+                       transparent 70%);
+            animation-delay: 10s;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(50px, 50px) rotate(90deg); }
+            50% { transform: translate(0, 100px) rotate(180deg); }
+            75% { transform: translate(-50px, 50px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
